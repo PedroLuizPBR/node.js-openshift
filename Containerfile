@@ -3,7 +3,7 @@ FROM registry.access.redhat.com/ubi9/nodejs-22:latest
 
 # Set Name application
 LABEL name="nodejs" \
-      io.k8s.display-name="cs3gatway" \
+      io.k8s.display-name="cs3gateway" \
       io.openshifit.display-name="cs3gateway"
 
 # Set environment variable as development
