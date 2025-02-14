@@ -11,9 +11,9 @@ Follow these steps to start your sandbox instance and deploy your Node.js app:
     
 3.  Select **Import from Git**.
     
-4.  Specify your Git repo URL. For the sake of this tutorial, we use [https://github.com/redhat-developer-demos/node.js-REST-API-openshift-example](https://github.com/redhat-developer-demos/node.js-REST-API-openshift-example). But, you can choose any Node.js repo.
+4.  Specify your Git repo URL. For the sake of this tutorial, we use [https://github.com/redhat-developer-demos/node.js-REST-API-openshift-example](https://github.com/PedroLuizPBR/node.js-openshift.git). But, you can choose any Node.js repo.
     
-5.  Add a **Containerfile** to your repo. The Containerfile helps developers to specify the environment needed for running your applications. In case, you do not have a Containerfile on your project, you can add add one to your repo by referring to [https://github.com/redhat-developer-demos/node.js-REST-API-openshift-example/blob/main/Containerfile](https://github.com/redhat-developer-demos/node.js-REST-API-openshift-example/blob/main/Containerfile)
+5.  Add a **Containerfile** to your repo. The Containerfile helps developers to specify the environment needed for running your applications. In case, you do not have a Containerfile on your project, you can add add one to your repo by referring to [https://github.com/PedroLuizPBR/node.js-openshift.git/blob/main/Containerfile](https://github.com/PedroLuizPBR/node.js-openshift.git/blob/main/Containerfile)
     
 6.  OpenShift will detect the Containerfile from the git repository. In case the Containerfile is in a subdirectory, you need to provide the path of Containerfile.
 [ **NOTE**: If the containerfile/Dockerfile is not detected, click Import Edit Strategy. Select as Dockerfile, define the path as Containerfile. ]
