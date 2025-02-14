@@ -1,5 +1,10 @@
-#Use RHEL8 UBI node 22 image as base
+# Use RHEL8 UBI node 22 image as base
 FROM registry.access.redhat.com/ubi9/nodejs-22:latest
+
+# Set Name application
+LABEL name="nodejs" \
+      io.k8s.display-name="cs3gatway" \
+      io.openshifit.display-name="cs3gateway"
 
 # Set environment variable as development
 ENV NODE_ENV=development
