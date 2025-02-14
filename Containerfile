@@ -1,9 +1,6 @@
 #Use RHEL8 UBI node 22 image as base
 FROM registry.access.redhat.com/ubi9/nodejs-22:latest
 
-# Set icon
-LABEL io.openshift.display-icon="https://nodejs.org/static/logos/jsIconGreen.svg"
-
 # Set environment variable as development
 ENV NODE_ENV=development
 
