@@ -39,8 +39,5 @@ RUN dnf install -y gcc gcc-c++ \
     && npm install -g node-red-nodes \
     && npm install -g node-red-admin
 
-# Switch back to non-root user
-USER 1001
-
 # Execute the start script
 CMD ["npm", "start"]
