@@ -1,5 +1,5 @@
-# Use RHEL9 UBI node 22 image as base
-FROM registry.access.redhat.com/ubi9/nodejs-22:latest
+# Use RHEL8 UBI node 22 image as base
+FROM registry.access.redhat.com/ubi8/nodejs-22:latest
 
 # Set Name application
 LABEL name="nodejs" \
