@@ -15,6 +15,9 @@ WORKDIR /usr/src/app
 # Switch to root user to install system packages
 USER root
 
+# Install all dependencies using npm
+RUN npm install
+
 # Install GCC 12, OpenSSL, Make, CMake, GMake, Node-API, node-gyp, node-red, node-red-dashboard, node-red-nodes, and node-red-ui-nodes
 RUN dnf install -y gcc gcc-c++ \
     && dnf install -y openssl-devel \
@@ -32,9 +35,6 @@ USER 1001
 
 # Copy the packages from remote directory to container work directory
 COPY --chown=1001:1001 package.json ./
-
-# Install all dependencies using npm
-RUN npm install
 
 # Copy the application to container
 COPY --chown=1001:1001 . /usr/src/app
