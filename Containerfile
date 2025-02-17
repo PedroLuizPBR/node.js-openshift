@@ -39,8 +39,5 @@ RUN dnf install -y gcc gcc-c++ \
     && npm install -g node-red-nodes \
     && npm install -g node-red-admin 
 
-# Copy the public directory to container
-COPY --chown=1001:1001 public /usr/src/app
-
 # Execute the start script
 CMD ["npm", "start"]
