@@ -43,8 +43,8 @@ COPY --chown=1001:1001 . /usr/src/app
 # Copy the public directory to container
 COPY --chown=1001:1001 public /usr/src/app/public
 
-# Expose the 3000 port to accept upcoming traffic
-EXPOSE 3000
+# Expose the 3001 port to accept upcoming traffic
+EXPOSE 3001
 
 # Execute the start script
 CMD ["npm", "start"]
