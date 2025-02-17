@@ -12,11 +12,20 @@ ENV NODE_ENV=development
 # Defining work directory
 WORKDIR /usr/src/app
 
+# Copy the packages from remote directory to container work directory
+COPY --chown=1001:1001 package.json ./
+
+# Install all dependacies using npm
+RUN npm install
+
+# Copy the application to container
+COPY --chown=1001:1001 . /usr/src/app
+
+# Expose the 3001 port to accept upcomming traffic
+EXPOSE 3001
+
 # Switch to root user to install system packages
 USER root
-
-# Install all dependencies using npm
-RUN npm install
 
 # Install GCC 12, OpenSSL, Make, CMake, GMake, Node-API, node-gyp, node-red, node-red-dashboard, node-red-nodes, and node-red-ui-nodes
 RUN dnf install -y gcc gcc-c++ \
@@ -30,20 +39,8 @@ RUN dnf install -y gcc gcc-c++ \
     && npm install -g node-red-nodes \
     && npm install -g node-red-admin 
 
-# Switch back to non-root user
-USER 1001
-
-# Copy the packages from remote directory to container work directory
-COPY --chown=1001:1001 package.json ./
-
-# Copy the application to container
-COPY --chown=1001:1001 . /usr/src/app
-
 # Copy the public directory to container
 COPY --chown=1001:1001 public /usr/src/app/public
-
-# Expose the 3001 port to accept upcoming traffic
-EXPOSE 3001
 
 # Execute the start script
 CMD ["npm", "start"]
