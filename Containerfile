@@ -20,7 +20,6 @@ RUN dnf install -y gcc gcc-c++ \
     && dnf install -y openssl-devel \
     && dnf install -y make \
     && dnf install -y cmake \
-    && dnf install -y gmake \
     && npm install node-addon-api \
     && npm install -g node-gyp \
     && npm install -g node-red \
