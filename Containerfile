@@ -25,8 +25,7 @@ RUN dnf install -y gcc gcc-c++ \
     && npm install -g node-red \
     && npm install -g node-red-dashboard \
     && npm install -g node-red-nodes \
-    && npm install -g node-red-admin \
-    && npm install -g node-red-node-swagger
+    && npm install -g node-red-admin 
 
 # Switch back to non-root user
 USER 1001
