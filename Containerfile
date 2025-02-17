@@ -21,9 +21,6 @@ RUN npm install
 # Copy the application to container
 COPY --chown=1001:1001 . /usr/src/app
 
-# Copy the Node-RED settings file
-COPY --chown=1001:1001 public/settings.js /usr/src/app/settings.js
-
 # Expose the 3001 port to accept upcoming traffic
 EXPOSE 3001
 
@@ -52,5 +49,5 @@ RUN dnf install -y gcc gcc-c++ \
 # Switch back to non-root user
 USER 1001
 
-# Execute the start script to run Node-RED
+# Execute the start script to run Node-RED on port 3001
 CMD ["node-red", "-p", "3001"]
