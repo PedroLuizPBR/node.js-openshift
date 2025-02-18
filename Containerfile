@@ -27,9 +27,8 @@ EXPOSE 3001
 # Switch to root user to install system packages
 USER root
 
-# Enable EPEL repository and install dependencies, GCC, Node-Red, Git, Python 3, ca-certificates, Application Development for Db2 databases, libssh2-devel, json-c, and jansson-devel
-RUN dnf install -y epel-release \
-    && dnf install -y gcc gcc-c++ \
+# Install dependencies, GCC, Node-Red, Git, Python 3, ca-certificates, Application Development for Db2 databases, libssh2-devel, json-c, and jansson-devel
+RUN dnf install -y gcc gcc-c++ \
     && dnf install -y openssl-devel \
     && dnf install -y make \
     && dnf install -y cmake \
