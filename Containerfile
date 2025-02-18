@@ -42,7 +42,8 @@ RUN chmod +x /usr/src/app/start.sh
 USER 1001
 
 # Modify the default Node-RED port from 1880 to 3001
-RUN sed -i 's/1880/3001/g' /opt/app-root/src/.node-red/settings.js
+# RUN sed -i 's/1880/3001/g' /opt/app-root/src/.node-red/settings.js
 
 # Use the script as the default command
-CMD ["sh", "-c", "/usr/src/app/start.sh"]
+# CMD ["sh", "-c", "/usr/src/app/start.sh"]
+CMD ["npm", "start"]
