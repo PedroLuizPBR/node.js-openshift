@@ -13,7 +13,7 @@ ENV NODE_ENV=development
 WORKDIR /usr/src/app
 
 # Copy package files first for better caching
-COPY --chown=1001:0 package.json package-lock.json ./
+COPY --chown=1001:0 package.json ./
 
 # Install only production dependencies
 RUN npm install --only=production
