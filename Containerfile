@@ -36,7 +36,6 @@ RUN dnf install -y gcc gcc-c++ \
     && dnf install -y python3 \
     && dnf install -y ca-certificates \
     && dnf install -y json-c \
-    && dnf install -y jansson-devel \
     && npm install node-addon-api \
     && npm install -g node-gyp \
     && npm install -g node-red \
