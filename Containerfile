@@ -32,17 +32,6 @@ RUN dnf install -y gcc gcc-c++ \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
-# Download and install the Db2 client
-RUN curl -L -o db2client.tar.gz "https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyv/0/Xa.2/Xb.jusyLTSp44S048PvKxWqxTpEWIGgvoTzOY6ttfvC9Z3A6ZQIMluo1AIg9Ac/Xc.CM/IM/0bsyv/0/v11.5.9_linuxppc64le_rtcl.tar.gz/Xd./Xf.LPR.D1vk/Xg.13224394/Xi.habanero/XY.habanero/XZ.BH4PgQCdYTeTWhTAcdCO9eKNXDXjEQyZ/v11.5.9_linuxppc64le_rtcl.tar.gz" \
-    && tar -xzf db2client.tar.gz -C /opt/ \
-    && rm db2client.tar.gz \
-    && ls -l /opt/ \
-    && ls -l /opt/db2client/ \
-    && /opt/db2client/install
-
-# Adjust permissions to avoid issues in OpenShift
-RUN chmod -R g=u /usr/src/app /opt/db2client
-
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
 
