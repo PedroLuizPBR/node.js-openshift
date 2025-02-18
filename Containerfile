@@ -39,10 +39,10 @@ COPY --chown=1001:1001 start.sh /usr/src/app/start.sh
 RUN chmod +x /usr/src/app/start.sh
 
 # Modify the default Node-RED port from 1880 to 3001
-RUN mkdir -p /opt/app-root/src/.node-red
+# RUN mkdir -p /opt/app-root/src/.node-red
 
-RUN cp /opt/app-root/src/.npm-global/lib/node_modules/node-red/settings.js /opt/app-root/src/.node-red/settings.js
-RUN sed -i 's/1880/3001/g' /opt/app-root/src/.node-red/settings.js
+# RUN cp /opt/app-root/src/.npm-global/lib/node_modules/node-red/settings.js /opt/app-root/src/.node-red/settings.js
+# RUN sed -i 's/1880/3001/g' /opt/app-root/src/.node-red/settings.js
 
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
