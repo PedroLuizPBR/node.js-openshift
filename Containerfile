@@ -41,7 +41,8 @@ RUN chmod +x /usr/src/app/start.sh
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
 
-# Use the script as the default command
-# CMD ["sh", "-c", "/usr/src/app/start.sh"]
+# Modify the default Node-RED port from 1880 to 3001
+RUN sed -i 's/1880/3001/g' /opt/app-root/src/.node-red/settings.js
 
-CMD ["npm", "start"]
+# Use the script as the default command
+CMD ["sh", "-c", "/usr/src/app/start.sh"]
