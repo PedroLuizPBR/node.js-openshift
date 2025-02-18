@@ -35,7 +35,6 @@ RUN dnf install -y gcc gcc-c++ \
     && dnf install -y git \
     && dnf install -y python3 \
     && dnf install -y ca-certificates \
-    && dnf install -y libssh2-devel \
     && dnf install -y json-c \
     && dnf install -y jansson-devel \
     && npm install node-addon-api \
