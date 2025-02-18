@@ -32,8 +32,14 @@ RUN dnf install -y gcc gcc-c++ \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
+# Copy the start script to the container
+COPY --chown=1001:1001 start.sh /usr/src/app/start.sh
+
+# Ensure execution permissions
+RUN chmod +x /usr/src/app/start.sh
+
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
 
-# Start the application
-CMD ["node-red", "-p", "3001"]
+# Use the script as the default command
+CMD ["sh", "-c", "/usr/src/app/start.sh"]
