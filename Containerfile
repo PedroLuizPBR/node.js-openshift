@@ -44,7 +44,6 @@ USER 1001
 # Modify the default Node-RED port from 1880 to 3001
 RUN mkdir -p /opt/app-root/src/.node-red
 RUN cp /opt/app-root/src/.npm-global/lib/node_modules/node-red/settings.js /opt/app-root/src/.node-red/settings.js
-RUN node-red --settings /opt/app-root/src/.node-red/settings.js
 RUN sed -i 's/1880/3001/g' /opt/app-root/src/.node-red/settings.js
 
 # Use the script as the default command
