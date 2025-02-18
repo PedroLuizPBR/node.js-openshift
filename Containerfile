@@ -27,7 +27,7 @@ EXPOSE 3001
 # Switch to root user to install system packages
 USER root
 
-# Install dependencies, GCC, Node-Red, Git, Python 3, ca-certificates, Application Development for Db2 databases, libssh2-devel, json-c, and jansson-devel
+# Install dependencies, GCC, Node-Red, Git, Python 3, ca-certificates, libssh2-devel, json-c, and jansson-devel
 RUN dnf install -y gcc gcc-c++ \
     && dnf install -y openssl-devel \
     && dnf install -y make \
@@ -35,7 +35,6 @@ RUN dnf install -y gcc gcc-c++ \
     && dnf install -y git \
     && dnf install -y python3 \
     && dnf install -y ca-certificates \
-    && dnf install -y db2-devel \
     && dnf install -y libssh2-devel \
     && dnf install -y json-c \
     && dnf install -y jansson-devel \
@@ -45,6 +44,12 @@ RUN dnf install -y gcc gcc-c++ \
     && npm install -g node-red-dashboard \
     && npm install -g node-red-nodes \
     && npm install -g node-red-admin
+
+# Download and install Db2 client
+RUN curl -L -o db2client.tar.gz "https://example.com/path/to/db2client.tar.gz" \
+    && tar -xzf db2client.tar.gz -C /opt/ \
+    && rm db2client.tar.gz \
+    && /opt/db2client/install
 
 # Switch back to non-root user
 USER 1001
