@@ -42,4 +42,4 @@ RUN chmod +x /usr/src/app/nodered.sh
 USER 1001
 
 # Use the script as the default command
-CMD ["sh", "-c", "/usr/src/app/nodered.sh"]
+CMD ["sh", "-c", "/usr/src/app/nodered.sh start"]
