@@ -33,13 +33,13 @@ RUN dnf install -y gcc gcc-c++ \
     && rm -rf /var/cache/dnf
 
 # Copy the start script to the container
-COPY --chown=1001:1001 start.sh /usr/src/app/start.sh
+COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
 
 # Ensure execution permissions
-RUN chmod +x /usr/src/app/start.sh
+RUN chmod +x /usr/src/app/nodered.sh
 
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
 
 # Use the script as the default command
-CMD ["sh", "-c", "/usr/src/app/start.sh"]
+CMD ["sh", "-c", "/usr/src/app/nodered.sh"]
