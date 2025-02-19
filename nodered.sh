@@ -16,11 +16,11 @@ case "$1" in
         ;;
     stop)
         echo "Stopping Node-RED..."
-        pkill -f node-red
+        kill -SIGTERM 1
         ;;
     restart)
         echo "Restarting Node-RED..."
-        pkill -f node-red
+        kill -SIGTERM 1
         sleep 2
         exec node-red
         ;;
