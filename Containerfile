@@ -27,7 +27,7 @@ EXPOSE 3001
 # Switch to root user to install required system dependencies
 USER root
 RUN dnf install -y gcc gcc-c++ \
-    openssl-devel make cmake git python3 ca-certificates json-c net-tools \
+    unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
     && npm install -g node-gyp node-red node-red-dashboard node-red-nodes node-red-admin \
     && dnf clean all \
     && rm -rf /var/cache/dnf
