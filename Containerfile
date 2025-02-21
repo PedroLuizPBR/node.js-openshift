@@ -27,7 +27,8 @@ EXPOSE 3001
 # Switch to root user to install required system dependencies
 USER root
 
-RUN dnf install -y ksh && \
+RUN dnf install -y epel-release \
+    dnf install -y ksh && \
     ln -sf /usr/bin/ksh /bin/ksh
 
 RUN dnf install -y \
