@@ -27,10 +27,10 @@ EXPOSE 3001
 # Switch to root user to install required system dependencies
 USER root
 
-RUN subscription-manager attach --auto
-RUN dnf repolist
-RUN dnf install -y ksh && \
-    ln -sf /usr/bin/ksh /bin/ksh
+RUN curl -O http://mirror.centos.org/centos/9-stream/AppStream/ppc64le/os/Packages/ksh-2020.0.0-5.el9.ppc64le.rpm && \
+    rpm -ivh ksh-2020.0.0-5.el9.ppc64le.rpm && \
+    ln -sf /usr/bin/ksh /bin/ksh && \
+    rm -f ksh-2020.0.0-5.el9.ppc64le.rpm
 
 RUN dnf install -y \
     gcc gcc-c++ unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
