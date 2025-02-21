@@ -28,8 +28,7 @@ EXPOSE 3001
 USER root
 RUN dnf install -y \
     gcc gcc-c++ unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
-    numactl-libs libxcrypt-compat file ksh \
-    && ln -s /usr/bin/ksh /bin/ksh \
+    numactl-libs libxcrypt-compat file \
     && npm install -g node-gyp node-red node-red-dashboard node-red-nodes node-red-admin \
     && dnf clean all \
     && rm -rf /var/cache/dnf
