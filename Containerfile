@@ -29,10 +29,11 @@ USER root
 RUN dnf install -y \
     gcc gcc-c++ unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
     numactl-libs libxcrypt-compat file \
-    && ln -s /usr/bin/ksh /bin/ksh \
     && npm install -g node-gyp node-red node-red-dashboard node-red-nodes node-red-admin \
     && dnf clean all \
     && rm -rf /var/cache/dnf
+
+RUN dnf install -y ksh93 mksh && ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh93 /bin/ksh93
 
 # Copy the start script to the container
 COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
