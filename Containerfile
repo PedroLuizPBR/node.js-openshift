@@ -45,8 +45,8 @@ ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bs
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
     && cd /tmp \
     && tar -xvzf db2client.tar.gz \
-    && ./db2_install -b /opt/ibm/db2/V11.5 \
-    && rm -rf /tmp/db2client*
+    && ./client/db2_install -b /opt/ibm/db2/V11.5 \
+    && rm -rf /tmp/client*
 
 # Environment variables
 ENV DB2_HOME=/opt/ibm/db2/V11.5
