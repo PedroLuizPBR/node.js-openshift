@@ -52,10 +52,10 @@ RUN chmod +rw /tmp/db2Resp.rsp
 
 # Download and Install DB2 Client
 #RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
-    && cd /tmp \
-    && tar -xvzf db2client.tar.gz \
-    && ./client/db2_install -b /opt/ibm/db2/V11.5 -r /tmp/db2Resp.rsp \
-    && rm -rf /tmp/client*
+#    && cd /tmp \
+#    && tar -xvzf db2client.tar.gz \
+#    && ./client/db2_install -b /opt/ibm/db2/V11.5 -r /tmp/db2Resp.rsp \
+#    && rm -rf /tmp/client*
 
 # Environment variables
 #ENV DB2_HOME=/opt/ibm/db2/V11.5
