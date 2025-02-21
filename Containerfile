@@ -27,7 +27,7 @@ EXPOSE 3001
 # Switch to root user to install required system dependencies
 USER root
 
-RUN subscription-manager repos --enable="rhel-9-for-ppc64le-baseos-rpms" --enable="rhel-9-for-ppc64le-appstream-rpms" 
+RUN dnf repolist
 RUN dnf install -y ksh && \
     ln -sf /usr/bin/ksh /bin/ksh
 
