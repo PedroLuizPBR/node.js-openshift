@@ -26,6 +26,11 @@ EXPOSE 3001
 
 # Switch to root user to install required system dependencies
 USER root
+
+RUN dnf config-manager --enable codeready-builder && \
+    dnf install -y ksh && \
+    ln -sf /usr/bin/ksh /bin/ksh
+
 RUN dnf install -y \
     gcc gcc-c++ unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
     numactl-libs libxcrypt-compat file \
