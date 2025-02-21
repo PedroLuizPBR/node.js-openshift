@@ -13,7 +13,7 @@ ENV NODE_ENV=development
 WORKDIR /usr/src/app
 
 # Copy package files first for better caching
-COPY --chown=1001:0 package.json ./
+COPY --chown=1001:0 package.json ./ 
 
 # Install only production dependencies
 RUN npm install --only=production
@@ -26,8 +26,9 @@ EXPOSE 3001
 
 # Switch to root user to install required system dependencies
 USER root
-RUN dnf install -y gcc gcc-c++ \
-    unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
+RUN dnf install -y \
+    gcc gcc-c++ unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
+    libnuma libxcrypt-compat ksh ksh93 mksh \
     && npm install -g node-gyp node-red node-red-dashboard node-red-nodes node-red-admin \
     && dnf clean all \
     && rm -rf /var/cache/dnf
@@ -38,7 +39,7 @@ COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
 # Ensure execution permissions
 RUN chmod +x /usr/src/app/nodered.sh
 
-#IBM DB2 Link
+# IBM DB2 Client Download URL
 ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyi/0/Xa.2/Xb.jusyLTSp44S0Bsj4h5665Za_tfvC6_QhddCT3j1KTVVxgZWr7xv9iUsS4ZY/Xc.CM/IM/0bsyi/0/v11.5.9_linuxppc64le_client.tar.gz/Xd./Xf.LPR.D1vk/Xg.13227590/Xi.habanero/XY.habanero/XZ.dODVEifkCY429nUNfsHNi4x9Y8eTeC6e/v11.5.9_linuxppc64le_client.tar.gz"
 
 # Download and Install DB2 Client
