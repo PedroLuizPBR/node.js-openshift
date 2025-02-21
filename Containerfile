@@ -27,6 +27,7 @@ EXPOSE 3001
 # Switch to root user to install required system dependencies
 USER root
 
+RUN subscription-manager attach --auto
 RUN dnf repolist
 RUN dnf install -y ksh && \
     ln -sf /usr/bin/ksh /bin/ksh
