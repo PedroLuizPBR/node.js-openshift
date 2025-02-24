@@ -37,10 +37,8 @@ RUN dnf install -y \
 RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
     rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
     ln -sf /usr/bin/ksh /bin/ksh && \
+    chmod +x /usr/bin/ksh && \
     rm -f ksh-1.0.6-4.el9.ppc64le.rpm
-
-RUN chown 1001:1001 /usr/bin/ksh 
-RUN chown 1001:1001 /bin/ksh
 
 #RUN dnf install -y ksh93 mksh && ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh93 /bin/ksh93
 
