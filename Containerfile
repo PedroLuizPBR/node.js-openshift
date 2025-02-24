@@ -39,6 +39,8 @@ RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packa
     ln -sf /usr/bin/ksh /bin/ksh && \
     rm -f ksh-1.0.6-4.el9.ppc64le.rpm
 
+RUN chown 1001:1001 /usr/bin/ksh /bin/ksh
+
 #RUN dnf install -y ksh93 mksh && ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh93 /bin/ksh93
 
 # Copy the start script to the container
