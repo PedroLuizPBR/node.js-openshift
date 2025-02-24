@@ -34,11 +34,11 @@ RUN dnf install -y \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
-#RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
-#    rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
-#    ln -sf /usr/bin/ksh /bin/ksh && \
-#    chmod +x /usr/bin/ksh && \
-#    rm -f ksh-1.0.6-4.el9.ppc64le.rpm
+RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
+    rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
+    ln -sf /usr/bin/ksh /bin/ksh && \
+    chmod +x /usr/bin/ksh && \
+    rm -f ksh-1.0.6-4.el9.ppc64le.rpm
 
 # Copy the start script to the container
 COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
@@ -56,16 +56,16 @@ COPY --chown=1001:1001 db2Resp.rsp /tmp/db2Resp.rsp
 RUN chmod +rw /tmp/db2Resp.rsp
 
 # Download and Install DB2 Client
-#RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
-#    && cd /tmp \
-#    && tar -xvzf db2client.tar.gz \
-#    && ./client/db2_install -b /opt/ibm/db2/V11.5 -r /tmp/db2Resp.rsp \
-#    && rm -rf /tmp/client*
+RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
+    && cd /tmp \
+    && tar -xvzf db2client.tar.gz \
+    && ./client/db2_install -b /opt/ibm/db2/V11.5 -r /tmp/db2Resp.rsp \
+    && rm -rf /tmp/client*
 
 # Environment variables
-#ENV DB2_HOME=/opt/ibm/db2/V11.5
-#ENV PATH="$DB2_HOME/bin:$PATH"
-#ENV LD_LIBRARY_PATH="$DB2_HOME/lib"
+ENV DB2_HOME=/opt/ibm/db2/V11.5
+ENV PATH="$DB2_HOME/bin:$PATH"
+ENV LD_LIBRARY_PATH="$DB2_HOME/lib"
 
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
