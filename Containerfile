@@ -27,17 +27,17 @@ EXPOSE 3001
 # Switch to root user to install required system dependencies
 USER root
 
-RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
-    rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
-    ln -sf /usr/bin/ksh /bin/ksh && \
-    rm -f ksh-1.0.6-4.el9.ppc64le.rpm
-
 RUN dnf install -y \
-    gcc gcc-c++ unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
+    diffutils gcc gcc-c++ unzip libaio openssl-devel make cmake git python3 ca-certificates json-c net-tools \
     numactl-libs libxcrypt-compat file \
     && npm install -g node-gyp node-red node-red-dashboard node-red-nodes node-red-admin \
     && dnf clean all \
     && rm -rf /var/cache/dnf
+
+RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
+    rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
+    ln -sf /usr/bin/ksh /bin/ksh && \
+    rm -f ksh-1.0.6-4.el9.ppc64le.rpm
 
 #RUN dnf install -y ksh93 mksh && ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh93 /bin/ksh93
 
