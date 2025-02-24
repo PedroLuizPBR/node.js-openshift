@@ -40,8 +40,6 @@ RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packa
     chmod +x /usr/bin/ksh && \
     rm -f ksh-1.0.6-4.el9.ppc64le.rpm
 
-#RUN dnf install -y ksh93 mksh && ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh93 /bin/ksh93
-
 # Copy the start script to the container
 COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
 
