@@ -34,11 +34,11 @@ RUN dnf install -y \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
-RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
-    rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
-    ln -sf /usr/bin/ksh /bin/ksh && \
-    chmod +x /usr/bin/ksh && \
-    rm -f ksh-1.0.6-4.el9.ppc64le.rpm
+#RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
+#    rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
+#    ln -sf /usr/bin/ksh /bin/ksh && \
+#    chmod +x /usr/bin/ksh && \
+#    rm -f ksh-1.0.6-4.el9.ppc64le.rpm
 
 # Copy the start script to the container
 COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
