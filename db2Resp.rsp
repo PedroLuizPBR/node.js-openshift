@@ -1,6 +1,4 @@
 PROD = CLIENT
 LIC_AGREEMENT = ACCEPT
-FILE = /usr/src/app/db2_install.log
-INSTALL_TYPE = TYPICAL
 INSTALL_DIR = /opt/ibm/db2/V11.5
 LANG = EN
