@@ -36,8 +36,9 @@ RUN dnf install -y \
 
 RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packages/ksh-1.0.6-4.el9.ppc64le.rpm && \
     rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
-    ln -sf /usr/bin/ksh /bin/ksh && \
     rm -f ksh-1.0.6-4.el9.ppc64le.rpm
+
+RUN ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh /usr/bin/ksh93
 
 # Copy the start script to the container
 COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
@@ -48,14 +49,12 @@ RUN chmod +x /usr/src/app/nodered.sh
 # IBM DB2 Client Download URL
 ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0csmj/0/Xa.2/Xb.jusyLTSp44S0Bsg8sTtAzvsTdD-Rrkf3LGGf8DXOtRbhR0ZFqK7Vv-NmePE/Xc.CM/IM/0csmj/0/special_52441_v11.5.9_linuxppc64le_client.tar.gz/Xd./Xf.LPR.D1vk/Xg.13234695/Xi.habanero/XY.habanero/XZ.50W1898O9NTjrXB6_Z3zeVeyxh0kU4fw/special_52441_v11.5.9_linuxppc64le_client.tar.gz"
 
-# Copy the start script to the container
+# Copy the start script to the container and ensure execution permissions
 COPY --chown=1001:1001 db2Resp.rsp /tmp/db2Resp.rsp
+RUN chmod 777 /tmp/db2Resp.rsp
 
 # Create installation directory and set permissions
 RUN mkdir -p /opt/ibm/db2 && chown -R 1001:1001 /opt/ibm/db2
-
-# Ensure execution permissions
-RUN chmod +rw /tmp/db2Resp.rsp
 
 # Download and Install DB2 Client
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
