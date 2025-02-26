@@ -38,7 +38,7 @@ RUN curl -O https://mirror.stream.centos.org/9-stream/AppStream/ppc64le/os/Packa
     rpm -ivh ksh-1.0.6-4.el9.ppc64le.rpm && \
     rm -f ksh-1.0.6-4.el9.ppc64le.rpm
 
-RUN ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh /usr/bin/ksh93
+#RUN ln -sf /usr/bin/ksh /bin/ksh && ln -sf /usr/bin/ksh /usr/bin/ksh93
 
 # Copy the start script to the container
 COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
