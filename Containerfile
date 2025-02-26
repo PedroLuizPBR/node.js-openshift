@@ -54,7 +54,7 @@ COPY --chown=1001:1001 db2Resp.rsp /tmp/db2Resp.rsp
 RUN chmod 777 /tmp/db2Resp.rsp
 
 # Create installation directory and set permissions
-RUN mkdir -p /opt/ibm/db2 && chown -R 1001:1001 /opt/ibm/db2
+# RUN mkdir -p /opt/ibm/db2 && chown -R 1001:1001 /opt/ibm/db2
 
 # Download and Install DB2 Client
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
@@ -65,7 +65,7 @@ RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
 RUN chown -R 1001:1001 /usr/src/app
 
 # Environment variables
-ENV DB2_HOME=/opt/ibm/db2/V11.5
+ENV DB2_HOME=/opt/ibm/db2
 ENV PATH="$DB2_HOME/bin:$PATH"
 ENV LD_LIBRARY_PATH="$DB2_HOME/lib"
 
