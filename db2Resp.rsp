@@ -47,7 +47,7 @@ FILE                      = /opt/ibm/db2/V11.5
 ** Modify the value of the following LIC_AGREEMENT keyword to indicate that you
 ** have read and agreed to the license agreement file in the db2/license
 ** directory.
-LIC_AGREEMENT             = DECLINE         ** ACCEPT or DECLINE
+LIC_AGREEMENT             = ACCEPT         ** ACCEPT or DECLINE
 
 ** If an interactive type is set, db2setup will prompt for CD locations and
 ** give feedback as to progress, otherwise nothing will be displayed until the
@@ -69,7 +69,7 @@ LIC_AGREEMENT             = DECLINE         ** ACCEPT or DECLINE
 ** 
 ** Note: The install type is not related to the language selection.
 ** ----------------------------------------------------------------------------
-INSTALL_TYPE              = TYPICAL         ** TYPICAL, COMPACT, CUSTOM
+INSTALL_TYPE              = CUSTOM         ** TYPICAL, COMPACT, CUSTOM
 
 ** The following components are part of all TYPICAL installations. If you
 ** perform a typical installation, all of these components will be installed on
@@ -78,24 +78,24 @@ INSTALL_TYPE              = TYPICAL         ** TYPICAL, COMPACT, CUSTOM
 
 ** First Steps is a graphical tool that will help familiarize you with DB2
 ** features and functions.
-*COMP                     = FIRST_STEPS                         ** First Steps
+COMP                     = FIRST_STEPS                         ** First Steps
 
 ** The DB2 Instance Setup wizard is a Java-based tool you can use to set up
 ** instances on your computer after installing DB2.
-*COMP                     = INSTANCE_SETUP_SUPPORT              ** DB2 Instance Setup wizard
+COMP                     = INSTANCE_SETUP_SUPPORT              ** DB2 Instance Setup wizard
 
 ** The IBM Software Development Kit (SDK) for Java(TM) provides the support
 ** required to use Java-based tools, and to create and run Java applications,
 ** including stored procedures and user-defined functions.
-*COMP                     = JDK                                 ** IBM Software Development Kit (SDK) for Java(TM)
+COMP                     = JDK                                 ** IBM Software Development Kit (SDK) for Java(TM)
 
 ** LDAP Exploitation allows DB2 to use an LDAP directory to store database
 ** directory and configuration information.
-*COMP                     = LDAP_EXPLOITATION                   ** DB2 LDAP support
+COMP                     = LDAP_EXPLOITATION                   ** DB2 LDAP support
 
 ** The Replication tools help you administer, operate, and monitor SQL and Q
 ** replication.
-*COMP                     = REPL_CLIENT                         ** Replication tools
+COMP                     = REPL_CLIENT                         ** Replication tools
 
 
 ** The following components are not part of TYPICAL installations, and thus can
@@ -105,11 +105,11 @@ INSTALL_TYPE              = TYPICAL         ** TYPICAL, COMPACT, CUSTOM
 ** The base application development tools component contains tools and files
 ** (including header files, libraries, and a precompiler) that are needed for
 ** developing applications that work with DB2.
-*COMP                     = APPLICATION_DEVELOPMENT_TOOLS       ** Base application development tools
+COMP                     = APPLICATION_DEVELOPMENT_TOOLS       ** Base application development tools
 
 ** Spatial Extender client contains the support required for communicating with
 ** a Spatial Extender server.
-*COMP                     = SPATIAL_EXTENDER_CLIENT_SUPPORT     ** Spatial Extender client
+COMP                     = SPATIAL_EXTENDER_CLIENT_SUPPORT     ** Spatial Extender client
 
 ** The following languages apply to all translated components. Enable the
 ** language(s) you want installed. If you do not enable any language keywords,
@@ -164,7 +164,7 @@ DB2_INST.GROUP_NAME       = db2iadm1        ** char(30) no spaces
 
 ** Use a generated GID if no value provided - highly recommended.
 *DB2_INST.GID             =                 ** Unsigned integer
-DB2_INST.HOME_DIRECTORY   =                 ** char(64) no spaces. Valid for root installation only
+*DB2_INST.HOME_DIRECTORY   =                 ** char(64) no spaces. Valid for root installation only
 *DB2_INST.PASSWORD         = Replace with your password ** Valid for root installation only
 *DB2_INST.TYPE            = CLIENT          ** CLIENT
 *DB2_INST.CLIENT_IMPORT_PROFILE =           ** a full path or a file in the same directory as the response file
@@ -446,5 +446,4 @@ DB2_INST.HOME_DIRECTORY   =                 ** char(64) no spaces. Valid for roo
 ** The Global Secure ToolKit will be automatically installed for you. If you
 ** don't want to install it, set the value to NO.
 *INSTALL_ENCRYPTION       = YES             ** YES or NO.Valid for root installation only.
-
 
