@@ -47,7 +47,7 @@ COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
 RUN chmod +x /usr/src/app/nodered.sh
 
 # IBM DB2 Client Download URL
-ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0csmj/0/Xa.2/Xb.jusyLTSp44S0Bsg8sTtAzvsTdD-Rrkf3LGGf8DXOtRbhR0ZFqK7Vv-NmePE/Xc.CM/IM/0csmj/0/special_52441_v11.5.9_linuxppc64le_client.tar.gz/Xd./Xf.LPR.D1vk/Xg.13234695/Xi.habanero/XY.habanero/XZ.50W1898O9NTjrXB6_Z3zeVeyxh0kU4fw/special_52441_v11.5.9_linuxppc64le_client.tar.gz"
+ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyi/0/Xa.2/Xb.jusyLTSp44S048M6LzY2NDRwmTsEiTGC6DI5ZdKcxzw_cG9_OGifc4pLdl4/Xc.CM/IM/0bsyi/0/v11.5.9_linuxppc64le_client.tar.gz/Xd./Xf.LPR.D1vk/Xg.13235739/Xi.habanero/XY.habanero/XZ.D7ICcsHAZXQWctuwdosySokSTdxrnCPs/v11.5.9_linuxppc64le_client.tar.gz"
 
 # Copy the start script to the container and ensure execution permissions
 COPY --chown=1001:1001 db2Resp.rsp /tmp/db2Resp.rsp
