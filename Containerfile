@@ -59,7 +59,7 @@ RUN mkdir -p /opt/ibm/db2 && chown -R 1001:1001 /opt/ibm/db2
 # Download and Install DB2 Client
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
     && cd /tmp \
-    && tar -xvzf db2client.tar.gz \
+    && tar -xvzf db2client.tar.gz 
 
 # Ensure proper permissions for DB2 installation logs
 RUN chown -R 1001:1001 /usr/src/app
