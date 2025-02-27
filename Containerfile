@@ -50,7 +50,8 @@ RUN chmod +x /usr/src/app/nodered.sh
 ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyi/0/Xa.2/Xb.jusyLTSp44S048M6LzY2NDRwmTsEiTGC6DI5ZdKcxzw_cG9_OGifc4pLdl4/Xc.CM/IM/0bsyi/0/v11.5.9_linuxppc64le_client.tar.gz/Xd./Xf.LPR.D1vk/Xg.13235739/Xi.habanero/XY.habanero/XZ.D7ICcsHAZXQWctuwdosySokSTdxrnCPs/v11.5.9_linuxppc64le_client.tar.gz"
 
 # Create installation directory and set permissions
-RUN mkdir -p /opt/ibm/db2 && mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm/db2 && chmod -R 775 /opt/ibm/db2
+# RUN mkdir -p /opt/ibm/db2 && mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm/db2 && chmod -R 775 /opt/ibm/db2
+RUN mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm && chmod -R 775 /opt/ibm
 
 # Download and Install DB2 Client
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
