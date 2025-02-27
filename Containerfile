@@ -60,7 +60,7 @@ RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
     && rm -rf /tmp/client*
 
 # Ensure proper permissions for DB2 installation logs
-RUN chown -R 1001:root /usr/ibm /opt/ibm/db2
+RUN chown -R 1001:root /opt/ibm /opt/ibm/db2
 
 # Environment variables
 ENV DB2_HOME=/opt/ibm/db2/V11.5
