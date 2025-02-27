@@ -64,12 +64,12 @@ RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
 # RUN chown -R 1001:root /opt/ibm /opt/ibm/db2
 
 # Environment variables
-export DB2_HOME=/opt/ibm/db2/V11.5
-export DB2INSTANCE=db2inst1
-export LD_LIBRARY_PATH=$DB2_HOME/lib64:$LD_LIBRARY_PATH
-export PATH=$DB2_HOME/bin:$PATH
-export CLASSPATH=$DB2_HOME/java/db2jcc.jar:$DB2_HOME/java/db2jcc_license_cu.jar:$CLASSPATH
-export DB2CODEPAGE=1208
+RUN export DB2_HOME=/opt/ibm/db2/V11.5
+RUN export DB2INSTANCE=db2inst1
+RUN export LD_LIBRARY_PATH=$DB2_HOME/lib64:$LD_LIBRARY_PATH
+RUN export PATH=$DB2_HOME/bin:$PATH
+RUN export CLASSPATH=$DB2_HOME/java/db2jcc.jar:$DB2_HOME/java/db2jcc_license_cu.jar:$CLASSPATH
+RUN export DB2CODEPAGE=1208
 
 
 # Switch back to a non-root user for security and OpenShift compatibility
