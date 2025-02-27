@@ -51,7 +51,7 @@ ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bs
 
 # Create installation directory and set permissions
 # RUN mkdir -p /opt/ibm/db2 && mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm/db2 && chmod -R 775 /opt/ibm/db2
-RUN mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm && chmod -R 775 /opt/ibm
+# RUN mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm && chmod -R 775 /opt/ibm
 
 # Download and Install DB2 Client
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
@@ -61,12 +61,12 @@ RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
     && rm -rf /tmp/client*
 
 # Ensure proper permissions for DB2 installation logs
-RUN chown -R 1001:root /opt/ibm /opt/ibm/db2
+# RUN chown -R 1001:root /opt/ibm /opt/ibm/db2
 
 # Environment variables
-ENV DB2_HOME=/opt/ibm/db2/V11.5
-ENV PATH="$DB2_HOME/bin:$PATH"
-ENV LD_LIBRARY_PATH="$DB2_HOME/lib"
+# ENV DB2_HOME=/opt/ibm/db2/V11.5
+# ENV PATH="$DB2_HOME/bin:$PATH"
+# ENV LD_LIBRARY_PATH="$DB2_HOME/lib"
 
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
