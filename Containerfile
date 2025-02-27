@@ -56,11 +56,11 @@ RUN mkdir -p /opt/ibm/db2 && mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
     && cd /tmp \
     && tar -xvzf db2client.tar.gz \
-    && ./tmp/client/db2_install -b /opt/ibm/db2/V11.5 -y \
+    && /tmp/client/db2_install -b /opt/ibm/db2/V11.5 -y \
     && rm -rf /tmp/client*
 
 # Ensure proper permissions for DB2 installation logs
-RUN chown -R 1001:root /usr/ibm
+RUN chown -R 1001:root /usr/ibm /opt/ibm/db2
 
 # Environment variables
 ENV DB2_HOME=/opt/ibm/db2/V11.5
