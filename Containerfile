@@ -53,8 +53,8 @@ ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bs
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
     && cd /tmp \
     && tar -xvzf db2client.tar.gz \
-    && /tmp/client/db2_install -b /opt/ibm/db2/V11.5 -y -L en \
-    && rm -rf /tmp/client*
+    && /tmp/rtcl/db2_install -b /opt/ibm/db2/V11.5 -y -L en \
+    && rm -rf /tmp/rtcl*
 
 # Ensure proper permissions for DB2 installation logs
 # RUN chown -R 1001:root /opt/ibm /opt/ibm/db2
