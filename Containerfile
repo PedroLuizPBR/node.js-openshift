@@ -47,11 +47,7 @@ COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
 RUN chmod +x /usr/src/app/nodered.sh
 
 # IBM DB2 Client Download URL
-ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyi/0/Xa.2/Xb.jusyLTSp44S048M6LzY2NDRwmTsEiTGC6DI5ZdKcxzw_cG9_OGifc4pLdl4/Xc.CM/IM/0bsyi/0/v11.5.9_linuxppc64le_client.tar.gz/Xd./Xf.LPR.D1vk/Xg.13235739/Xi.habanero/XY.habanero/XZ.D7ICcsHAZXQWctuwdosySokSTdxrnCPs/v11.5.9_linuxppc64le_client.tar.gz"
-
-# Create installation directory and set permissions
-# RUN mkdir -p /opt/ibm/db2 && mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm/db2 && chmod -R 775 /opt/ibm/db2
-# RUN mkdir -p /opt/ibm/db2/V11.5 && chown -R 1001:1001 /opt/ibm && chmod -R 775 /opt/ibm
+ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyv/0/Xa.2/Xb.jusyLTSp44S048NdUVBNUNtuiMD4K1EIKm-xGyxJHRz_nbhCW4ijzDxaW1s/Xc.CM/IM/0bsyv/0/v11.5.9_linuxppc64le_rtcl.tar.gz/Xd./Xf.LPR.D1vk/Xg.13239087/Xi.habanero/XY.habanero/XZ.0aAz4z5ZEEEpWE2mrcPjK1HPGhtjmG7_/v11.5.9_linuxppc64le_rtcl.tar.gz"
 
 # Download and Install DB2 Client
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
@@ -64,11 +60,16 @@ RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
 # RUN chown -R 1001:root /opt/ibm /opt/ibm/db2
 
 # Environment variables
-ENV DB2_HOME=/opt/ibm/db2/V11.5
 ENV DB2INSTANCE=db2inst1
-ENV LD_LIBRARY_PATH=$DB2_HOME/lib64:$LD_LIBRARY_PATH
-ENV PATH=$DB2_HOME/bin:$PATH
-ENV CLASSPATH=$DB2_HOME/java/db2jcc.jar:$DB2_HOME/java/db2jcc_license_cu.jar:$CLASSPATH
+ENV DB2HOME=/opt/ibm/db2/V11.5
+ENV INSTHOME=/home/db2inst1
+ENV PATH=$DB2HOME/bin:$PATH
+ENV LD_LIBRARY_PATH=$DB2HOME/lib:$LD_LIBRARY_PATH
+ENV LIBPATH=$DB2HOME/lib:$LIBPATH
+ENV CLASSPATH=$DB2HOME/java/db2java.zip:$DB2HOME/java/db2jcc.jar:$CLASSPATH
+ENV DB2DIR=$DB2HOME
+ENV DB2MESSAGE=$DB2DIR/msg/en_US.iso88591
+ENV NLSPATH=$DB2MESSAGE/%N
 ENV DB2CODEPAGE=1208
 
 
