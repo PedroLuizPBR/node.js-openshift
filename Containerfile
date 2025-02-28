@@ -72,6 +72,8 @@ ENV DB2MESSAGE=$DB2DIR/msg/en_US.iso88591
 ENV NLSPATH=$DB2MESSAGE/%N
 ENV DB2CODEPAGE=1208
 
+# Create instnce DB2
+RUN ./ibm/db2/V11.5/instance/db2icrt -s client default
 
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
