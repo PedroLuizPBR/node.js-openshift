@@ -54,16 +54,14 @@ RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
     && cd /tmp \
     && tar -xvzf db2client.tar.gz \
     && /tmp/rtcl/db2_install -b /opt/ibm/db2/V11.5 -y -L en \
-    && rm -rf /tmp/rtcl*
-
-# Ensure proper permissions for DB2 installation logs
-# RUN chown -R 1001:root /opt/ibm /opt/ibm/db2
+    && rm -rf /tmp/rtcl* 
+    
 
 # Environment variables
 ENV DB2INSTANCE=db2inst1
 ENV DB2HOME=/opt/ibm/db2/V11.5
 ENV INSTHOME=/home/db2inst1
-ENV PATH=$DB2HOME/bin:$PATH
+ENV PATH=$DB2HOME/bin:$DB2HOME/adm:$PATH
 ENV LD_LIBRARY_PATH=$DB2HOME/lib:$LD_LIBRARY_PATH
 ENV LIBPATH=$DB2HOME/lib:$LIBPATH
 ENV CLASSPATH=$DB2HOME/java/db2java.zip:$DB2HOME/java/db2jcc.jar:$CLASSPATH
@@ -73,7 +71,8 @@ ENV NLSPATH=$DB2MESSAGE/%N
 ENV DB2CODEPAGE=1208
 
 # Create instnce DB2
-RUN /opt/ibm/db2/V11.5/instance/db2icrt -s client default
+RUN /opt/ibm/db2/V11.5/instance/db2icrt -s client default \
+    && chown -R 1001:1001 /opt/ibm
 
 # Switch back to a non-root user for security and OpenShift compatibility
 USER 1001
