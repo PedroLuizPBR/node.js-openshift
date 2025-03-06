@@ -47,7 +47,7 @@ COPY --chown=1001:1001 nodered.sh /usr/src/app/nodered.sh
 RUN chmod +x /usr/src/app/nodered.sh
 
 # IBM DB2 Client Download URL
-ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyv/0/Xa.2/Xb.jusyLTSp44S048NdUVBNUNtuiMD4K1EIKm-xGyxJHRz_nbhCW4ijzDxaW1s/Xc.CM/IM/0bsyv/0/v11.5.9_linuxppc64le_rtcl.tar.gz/Xd./Xf.LPR.D1vk/Xg.13239087/Xi.habanero/XY.habanero/XZ.0aAz4z5ZEEEpWE2mrcPjK1HPGhtjmG7_/v11.5.9_linuxppc64le_rtcl.tar.gz"
+ENV DB2_CLIENT_URL="https://ak-delivery04-mul.dhe.ibm.com/sdfdl/v2/sar/CM/IM/0bsyv/0/Xa.2/Xb.jusyLTSp44S045at1gkXqhrahLi7MWvQadQJpuUNs_LD7BD8TIOZvvMOqtU/Xc.CM/IM/0bsyv/0/v11.5.9_linuxppc64le_rtcl.tar.gz/Xd./Xf.LPR.D1vk/Xg.13247223/Xi.habanero/XY.habanero/XZ.MCfeOgg_qQqYSjuf0fTPRI0JEtvYjWIR/v11.5.9_linuxppc64le_rtcl.tar.gz"
 
 # Download and Install DB2 Client
 RUN curl -o /tmp/db2client.tar.gz "$DB2_CLIENT_URL" \
